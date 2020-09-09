@@ -130,7 +130,7 @@ namespace eval TeX2utf8 {
 
         # first the diacritical patterns are located in the input string
 
-        set patterns [regexp -inline -all {{\\(.){(\w)}}} $TeXString]
+        set patterns [regexp -inline -all {\\(.){(\w)}} $TeXString]
         
         set pattern_map [dict create]
 
@@ -157,4 +157,4 @@ namespace eval TeX2utf8 {
     namespace ensemble create
 }
 
-package provide tex2utf8 0.1
+package provide tex2utf8 1.0
