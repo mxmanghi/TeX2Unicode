@@ -1,12 +1,18 @@
 #
-# -- tex2utf8
+# -- tex2utf8.tcl
+# 
+# Conversion utility for TeX characters coded as diacritics.
+# This package provides a 'convert' command that accepts strings containing
+# LaTeX diacritical marks and returns a pure UTF-8 representation of the string.
+# The package does not provide a complete conversion utility of symbols and
+# characters as represented in (La)Tex. It's mostly useful with western languages
+# that use extended character sets and, even though marginal, there are corners
+# of the western extended character sets that are still not supported (see below)
 #
-# TeX characters coded as diacritical marks conversion into
-# their corresponding UTF-8 codes. The purpose of this package is
-# not to provide a complete conversion utility from (La)Tex to UTF-8,
-# it's mostly useful when you have to convert text paragraphs
-# where western characters belonging to extended sets are coded using a
-# TeX diacritical character sequence
+# The problem of handling strings containing diacritical LaTex character
+# representations is common when handling references in Bibtex style citations
+# 
+# Examples:
 #
 #   \'{e} which translates as 'é' or
 #   \"{u} which translates as 'ü' etc
@@ -30,13 +36,14 @@
 # Limitations: the package checkes for \x{y} patterns, simplified coding
 # such as \'e still not handled.
 #
-# The package is largely incomplete (for instance I still have to figure out
-# how double grave diacritical marks are coded in Tex). The support for
-# the set of diacritical marks in the Basic Latin set is fairly complete
-# and the Ogonek marks in the Latin extended-A is also supported. But
-# the problem of supporting shorthand notation for the certain class of
-# characters (e.g. \r{a} that can be made as \aa and many others) is still 
-# to be analyzed (the pattern search could be painful) and implemented
+# The package is incomplete. For instance double grave diacritical marks
+# conversion is still to be figured out. The support for
+# the set of diacritical marks in the Basic Latin and the Ogonek marks 
+# in the Latin extended-A sets is fairly complete.
+# The problem of supporting shorthand notation for the certain class of
+# characters (e.g. \r{a} that can be made as \aa) requires a more
+# elaborate pattern matching
+#
 
 namespace eval TeX2utf8 {
     variable conversion_map [dict create \
@@ -128,7 +135,7 @@ namespace eval TeX2utf8 {
     proc convert {TeXString} {
         variable conversion_map
 
-        # first the diacritical patterns are located in the input string
+        # the diacritical patterns are located in the input string
 
         set patterns [regexp -inline -all {\\(.){(\w)}} $TeXString]
         
@@ -158,3 +165,4 @@ namespace eval TeX2utf8 {
 }
 
 package provide tex2utf8 1.0
+#
