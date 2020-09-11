@@ -6,12 +6,13 @@ Usage
 
 package require tex2utf8
 
-::TeX2utf8 convert {\'{a}\'{e}\'{i}\'{o}\'{u}\'{A}\'{E}\'{I}\'{O}\'{U}}
+::TeX2utf8 to\_utf8 {\\'{a}\\'{e}\\'{i}\\'{o}\\'{u}\\'{A}\\'{E}\\'{I}\\'{O}\\'{U}}
 
 If your web page or shell has an UTF-8 based locale you should see the correct representation of
 the characters
 
-   supported LaTeX diacritical marks (example characters require UTF-8)
+   supported LaTeX diacritical marks. Characters in the examples require an UTF-8 based locale to
+be seen correctly
 
    - " umlaut
    - ^ circumflex

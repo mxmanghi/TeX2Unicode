@@ -132,7 +132,12 @@ namespace eval TeX2utf8 {
                     O \u01ea o \u01eb]  \
 ]
 
-    proc convert {TeXString} {
+    proc to_latex {utf8string} {
+        return ""
+    }
+    namespace export to_latex
+
+    proc to_utf8 {TeXString} {
         variable conversion_map
 
         # the diacritical patterns are located in the input string
@@ -158,6 +163,10 @@ namespace eval TeX2utf8 {
 
         set smap [dict map {k v} $pattern_map {dict get $conversion_map {*}$v}]
         return [string map $smap $TeXString]
+    }
+
+    proc convert {tex_string} {
+        return [to_utf8 $tex_string]
     }
     namespace export convert
 
