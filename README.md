@@ -26,6 +26,6 @@ be seen correctly
    - . dot above a character
    - r ring over a letter (as in å)
    - H double acute accent as in Ő
-   - r letters with ogonek (as in ą) used in Polish and Lituanian 
+   - k letters with ogonek (as in ą) used in Polish and Lituanian 
 
 
