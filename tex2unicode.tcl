@@ -167,6 +167,7 @@ namespace eval tex2unicode {
         set smap [dict map {k v} $pattern_map {dict get $conversion_map {*}$v}]
         return [string map $smap $TeXString]
     }
+    namespace export to_unicode
 
     proc convert {tex_string} {
         return [to_unicode $tex_string]
