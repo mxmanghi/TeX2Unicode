@@ -1,18 +1,16 @@
-# Tex2utf8
+# tex2unicode
 
-Tcl utility that converts LaTeX diacritics of Western characters sets into their corresponding UTF8 codes 
+Tcl utility that converts LaTeX diacritics of Western characters sets into their corresponding Unicode code points 
 
 Usage
 
-package require tex2utf8
+package require tex2unicode
 
-::TeX2utf8 to\_utf8 {\\'{a}\\'{e}\\'{i}\\'{o}\\'{u}\\'{A}\\'{E}\\'{I}\\'{O}\\'{U}}
+::tex2unicode to\_unicode {\\'{a}\\'{e}\\'{i}\\'{o}\\'{u}\\'{A}\\'{E}\\'{I}\\'{O}\\'{U}}
+<==
+àèìòùÀÈÌÒÙ
 
-If your web page or shell has an UTF-8 based locale you should see the correct representation of
-the characters
-
-   supported LaTeX diacritical marks. Characters in the examples require an UTF-8 based locale to
-be seen correctly
+   supported LaTeX diacritical marks. 
 
    - " umlaut
    - ^ circumflex

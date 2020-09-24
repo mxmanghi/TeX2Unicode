@@ -1,9 +1,9 @@
 #
-# -- tex2utf8.tcl
+# -- tex2unicode.tcl
 # 
 # Conversion utility for TeX characters coded as diacritics.
 # This package provides a 'convert' command that accepts strings containing
-# LaTeX diacritical marks and returns a pure UTF-8 representation of the string.
+# LaTeX diacritical marks and returns a Unicode representation of the string.
 # The package does not provide a complete conversion utility of symbols and
 # characters as represented in (La)Tex. It's mostly useful with western languages
 # that use extended character sets and, even though marginal, there are corners
@@ -38,14 +38,17 @@
 #
 # The package is incomplete. For instance double grave diacritical marks
 # conversion is still to be figured out. The support for
-# the set of diacritical marks in the Basic Latin and the Ogonek marks 
+# the set of diacritical marks for the Basic Latin and for the Ogonek marks 
 # in the Latin extended-A sets is fairly complete.
 # The problem of supporting shorthand notation for the certain class of
 # characters (e.g. \r{a} that can be made as \aa) requires a more
-# elaborate pattern matching
+# elaborate pattern matching to be implemented
+#
+# The package was developed to deal with LaTex diacritics that appear in
+# 
 #
 
-namespace eval TeX2utf8 {
+namespace eval tex2unicode {
     variable conversion_map [dict create \
                                         \
     \" [dict create a \u00e4 A \u00c4   \
@@ -132,12 +135,12 @@ namespace eval TeX2utf8 {
                     O \u01ea o \u01eb]  \
 ]
 
-    proc to_latex {utf8string} {
+    proc to_latex {unicode_string} {
         return ""
     }
     namespace export to_latex
 
-    proc to_utf8 {TeXString} {
+    proc to_unicode {TeXString} {
         variable conversion_map
 
         # the diacritical patterns are located in the input string
@@ -166,12 +169,12 @@ namespace eval TeX2utf8 {
     }
 
     proc convert {tex_string} {
-        return [to_utf8 $tex_string]
+        return [to_unicode $tex_string]
     }
     namespace export convert
 
     namespace ensemble create
 }
 
-package provide tex2utf8 1.0
+package provide tex2unicode 1.0
 #
