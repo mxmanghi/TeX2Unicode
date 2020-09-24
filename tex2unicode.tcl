@@ -14,8 +14,8 @@
 # 
 # Examples:
 #
-#   \'{e} which translates as 'é' or
-#   \"{u} which translates as 'ü' etc
+#   \'{e} is translates into the code point of 'é' or
+#   \"{u} is translated as 'ü'
 #
 #   supported diacritics
 #
@@ -33,8 +33,11 @@
 #   - H double acute accent as in Ő
 #   - k letters with ogonek (as in ą) used in Polish and Lituanian 
 #
-# Limitations: the package checkes for \x{y} patterns, simplified coding
-# such as \'e still not handled.
+# Limitations:
+#
+# The package was developed to deal with LaTex diacritics printed in
+# BibTex references returned by DOI translation services. Code checks 
+# for \x{y} patterns, simplified coding such as \'e still not handled.
 #
 # The package is incomplete. For instance double grave diacritical marks
 # conversion is still to be figured out. The support for
@@ -43,9 +46,6 @@
 # The problem of supporting shorthand notation for the certain class of
 # characters (e.g. \r{a} that can be made as \aa) requires a more
 # elaborate pattern matching to be implemented
-#
-# The package was developed to deal with LaTex diacritics that appear in
-# 
 #
 
 namespace eval tex2unicode {
