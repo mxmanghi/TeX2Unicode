@@ -6,8 +6,8 @@ Usage
 
 package require tex2unicode
 
-::tex2unicode to\_unicode {\\'{a}\\'{e}\\'{i}\\'{o}\\'{u}\\'{A}\\'{E}\\'{I}\\'{O}\\'{U}}
-<==
+::tex2unicode to\_unicode {\\'{a}\\'{e}\\'{i}\\'{o}\\'{u}\\'{A}\\'{E}\\'{I}\\'{O}\\'{U}}  
+<==  
 àèìòùÀÈÌÒÙ
 
    supported LaTeX diacritical marks. 
