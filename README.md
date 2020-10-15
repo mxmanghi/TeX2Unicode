@@ -1,6 +1,6 @@
 # tex2unicode
 
-Tcl utility that converts LaTeX diacritics of Western characters sets into their corresponding Unicode code points 
+Tcl utility that converts LaTeX diacritics of Western character sets into their corresponding Unicode code points 
 
 Usage
 
