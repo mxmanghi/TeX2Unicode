@@ -1,5 +1,5 @@
 2020-09-09 Massimo Manghi <massimo.manghi@gmail.com>
-	* tex2utf8.tcl: removed redundant braces in regexp.
+	* tex2unicode.tcl: removed redundant braces in regexp.
 					Documentation revised, package revision
 					bumped to 1.0
 	* README.md: add example
